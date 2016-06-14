@@ -1,4 +1,4 @@
-# wiktionary-translations-parser
+# wiktionary-derivations-parser
 
 For foreign editions of Wiktionary, extract derivations on each page (if they exist).
 
