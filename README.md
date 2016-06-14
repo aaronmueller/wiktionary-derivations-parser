@@ -1,10 +1,10 @@
 # wiktionary-translations-parser
 
-For some editions of Wiktionary, extract translation pairs on each page.
+For foreign editions of Wiktionary, extract derivations on each page (if they exist).
 
 ## Input
 
-Eventually the input would a `.zim` file that contains all pages of an edition.
+A `.zim` file that contains all pages of a given edition of Wiktionary.
 
 - Wiktionary dumps in `.zim` format can be obtained from [kiwix](https://download.kiwix.org/zim/wiktionary/).
 
@@ -12,17 +12,15 @@ For now, we are dealing with individual `.html` pages from the editions we're wo
 
 ## Output
 
-Each translation tuple consists of these fields:
+Each derivation tuple consists of these fields (UNFINISHED):
 
-- `edition`: the edition of Wiktionary the translation pair is from. It is a 2-3 letter code used in the Wiktionary url.
-- `headword`: the word that is being translated.
-- `head_lang`: the language of the `headword`. It might be different from the language of the edition.
-- `translation`: the translation of the `headword`.
-- `trans_lang`: the language the `headword` is translated into.
-- `trans_lang_code`: the language code of `tranlation_lang`. This is the edition code used by Wiktionary, and it is [not from a single ISO standard](https://en.wiktionary.org/wiki/Wiktionary:Languages#Language_codes).
-- `pos`: the part of speech of the `headword` in `head_lang`.
+- `edition`: the edition of Wiktionary the derivation is from. It is a 2-3 letter code used in the Wiktionary url.
+- `headword`: the word that is being derived.
+- `lang`: the language of the `headword`. It might be different from the language of the edition.
+- `derivation`: the derivation of the `headword`.
+- `pos`: the part of speech of the `headword` in `lang`.
 
-The output is a `.csv` with these seven columns.
+The output is a `.csv` with these columns.
 
 ## Dependencies
 
@@ -62,9 +60,8 @@ The list of common things in different editions are listed in [common.md](common
 
 ## Todo
 
-- Write parsers for two or three editions.
+- Write parsers for two or three editions using the translation parsers.
 	- Run parsers on zim files (entire foreign editions of Wiktionary)
 - Generalize them and create a skeleton for writing other parsers.
   - make it so that we need minimal changes in order to parse another edition
 - Generate parsers for editions of interest.
-- Use translation scripts as base for derivation-table-parsing scripts.
